@@ -332,7 +332,7 @@ def make_video(nusc, scene_index=0, fps=2):
             render_camera(ax, nusc, tok, cam, focus_inst)
         render_bev_frame(bev_ax, nusc, tok, focus_inst)
         bev_ax.set_title(f"BEV trajectory + attention ({FUTURE_SEC:.0f}s, K={N_MODES})  "
-                         f"frame {frame_idx+1}/{len(tokens)}  * illustrative", fontsize=11)
+                         f"frame {frame_idx+1}/{len(tokens)} ", fontsize=11)
         fig.suptitle(f"Scene {nusc.scene[scene_index]['name']}  "
                      f"Multi-view <-> BEV (tracked vehicle highlighted)", fontsize=15, y=0.98)
         print(f"  rendering frame {frame_idx+1}/{len(tokens)}", end="\r")
