@@ -1,0 +1,11 @@
+v1.0-mini/
+v1.0-mini.tgz
+*.tar.gz
+*.mp4
+*.png
+*.pdf
+*.pptx
+*.docx
+__pycache__/
+venv/
+nuScenes-panoptic-v1.0-mini/

@@ -1,0 +1,30 @@
+# 資料集（授權禁止散佈 + 體積過大）
+v1.0-mini/
+v1.0-mini.tgz
+*.tar.gz
+nuScenes-panoptic-v1.0-mini/
+
+# 輸出檔
+*.mp4
+*.png
+*.pdf
+
+*.pptx
+*.docx
+
+# Python 雜物
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# 編輯器
+.vscode/
+.idea/
+
+# 只上傳 step12，排除其他 .py
+step*.py
+debug*.py
+verify*.py
+test*.py
+!step12_video_highlight.py
