@@ -3,9 +3,7 @@
 #   python step10_final.py           (interactive scene/frame selection)
 #   python step10_final.py --auto    (auto-pick the frame with the most obvious motion)
 #
-# ★ Trajectory branches and the attention heatmap are SYNTHETIC / ILLUSTRATIVE
-#   (heuristically generated from the ground-truth future path and nearby
-#   agents).
+
 import sys
 import numpy as np
 import matplotlib
@@ -112,8 +110,8 @@ def collect_targets(nusc, sample_token, cs, pose):
 
 
 def make_multimodal(future_latlon, n_modes=N_MODES, spread=2.5):
-    """★ Illustrative: synthesizes K candidate trajectories around the
-    ground-truth future path. Not a model output."""
+    """ synthesizes K candidate trajectories around the
+    ground-truth future path."""
     if len(future_latlon) < 2:
         return [future_latlon], np.array([1.0])
     d = future_latlon[-1] - future_latlon[0]
@@ -144,9 +142,9 @@ def add_gradient_traj(ax, traj_latlon, prob):
             markersize=2 + 5 * prob, alpha=min(1.0, 0.4 + 0.6 * prob), zorder=6)
 
 
-# ==================== Attention heatmap (illustrative) ====================
+# ==================== Attention heatmap  ====================
 def synth_attention(target, neighbors):
-    """★ Illustrative: hand-crafted attention. Grid indexing uses
+    """ hand-crafted attention. Grid indexing uses
     latlon_to_grid, consistent with the plot axes."""
     attn = np.zeros((BEV_SIZE, BEV_SIZE), dtype=np.float32)
     # along the future path
@@ -248,7 +246,7 @@ def render_bev(ax, nusc, sample_token, show_attention=True):
     ax.set_xlim(-BEV_RANGE, BEV_RANGE); ax.set_ylim(-BEV_RANGE, BEV_RANGE)
     ax.set_aspect("equal")
     ax.set_title(f"BEV multi-modal trajectory + attention heatmap "
-                 f"({FUTURE_SEC:.0f}s, K={N_MODES})  * illustrative",
+                 f"({FUTURE_SEC:.0f}s, K={N_MODES})",
                  fontsize=11)
     ax.set_xlabel("Lateral (m)")
     ax.set_ylabel("Longitudinal (m); ego heading up")

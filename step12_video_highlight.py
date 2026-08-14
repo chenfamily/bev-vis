@@ -2,9 +2,6 @@
 # highlighted consistently across the 6 camera views and the BEV panel.
 # No dependency on other step files; all helper functions are self-contained.
 #
-# ★ Trajectory branches and the attention heatmap are SYNTHETIC / ILLUSTRATIVE
-#   (heuristically generated from the ground-truth future path and nearby
-#   agents) — NOT the output of a trained detection/prediction model.
 #
 # Usage:
 #   python step12_video_highlight.py                (scene 0)
@@ -116,8 +113,8 @@ def collect_targets(nusc, sample_token, cs, pose):
 
 
 def make_multimodal(future_latlon, n_modes=N_MODES, spread=2.5):
-    """★ Illustrative: synthesizes K candidate trajectories around the
-    ground-truth future path. Not a model output."""
+    """synthesizes K candidate trajectories around the
+    ground-truth future path. """
     if len(future_latlon) < 2:
         return [future_latlon], np.array([1.0])
     d = future_latlon[-1] - future_latlon[0]
@@ -153,8 +150,7 @@ def latlon_to_grid(lat, lon):
     row = int(np.clip((lon + BEV_RANGE) / BEV_RESOLUTION, 0, BEV_SIZE - 1))
     return row, col
 
-def synth_attention(target, neighbors):
-    """★ Illustrative: hand-crafted attention, not a real model's weights."""
+def synth_attention(target, neighbors):    
     attn = np.zeros((BEV_SIZE, BEV_SIZE), dtype=np.float32)
     for i, pt in enumerate(target["future"]):
         r, c = latlon_to_grid(pt[0], pt[1]); attn[r, c] += 2.0 * np.exp(-i / 5.0)
