@@ -80,13 +80,9 @@ redistribution). To obtain it:
 ## Run with Docker (recommended)
 
 ### 1. Build the image
-<<<<<<< HEAD
-=======
-
 ```bash
 docker build -t bev-vis .
 ```
->>>>>>> cc70fe0 (Add step10 (interactive scene picker), translate plot text to English, update README)
 
 ### 2. Run
 
@@ -142,22 +138,21 @@ docker run --rm \
   -e NUSC_ROOT=/data \
   -e OUT_DIR=/app/output \
   bev-vis \
-<<<<<<< HEAD
   python step12_video_highlight.py --scene 0
-=======
+
   python step10_final.py --auto
->>>>>>> cc70fe0 (Add step10 (interactive scene picker), translate plot text to English, update README)
+
 ```
 
 If your dataset lives elsewhere, replace `"$(pwd)/v1.0-mini"` with the
 absolute path to your `v1.0-mini` folder (the one containing `maps/`,
 `samples/`, `sweeps/`, and an inner `v1.0-mini/` metadata folder).
 
-<<<<<<< HEAD
+
 The output video appears in your mounted `output` folder.
-=======
+
 The output image/video appears in your mounted `output` folder.
->>>>>>> cc70fe0 (Add step10 (interactive scene picker), translate plot text to English, update README)
+
 
 **Windows PowerShell:**
 
@@ -168,18 +163,17 @@ docker run --rm -it `
   -e NUSC_ROOT=/data `
   -e OUT_DIR=/app/output `
   bev-vis `
-<<<<<<< HEAD
+
   python step12_video_highlight.py --scene 0
 ```
 
-=======
   python step10_final.py
 ```
 
 (Drop `-it` and add `--scene N` for `step12_video_highlight.py`, which
 doesn't need an interactive terminal.)
 
->>>>>>> cc70fe0 (Add step10 (interactive scene picker), translate plot text to English, update README)
+
 ## Run locally (conda)
 
 ```bash
