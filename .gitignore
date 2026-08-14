@@ -28,3 +28,4 @@ debug*.py
 verify*.py
 test*.py
 !step12_video_highlight.py
+!step10_final.py
